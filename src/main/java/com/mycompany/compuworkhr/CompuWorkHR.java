@@ -54,14 +54,14 @@ public class CompuWorkHR {
             departamentoCtrl.asignarEmpleado(departamento.getId(), empleados[i]);
         }
 
-        //Crear evaluaciones aleatorias
+        //Crear evaluaciones aleatorias para poder generar reportes para mostrar
         for (Empleado e : empleados) {
             int resultadoEvaluacion = rnd.nextInt(5) + 1;
             EvaluacionDesempeno eval = new EvaluacionDesempeno(e.getId(), e, resultadoEvaluacion, "Evaluación automática");
             evalCtrl.agregarEvaluacion(eval);
         }
 
-        // Mostrar departamentos con empleados
+        // Mostrar departamentos con empleados para mostrar la asignación
         System.out.println("=== Departamentos y sus Empleados ===");
         departamentoCtrl.getAllDepartamentos().forEach(System.out::println);
 
