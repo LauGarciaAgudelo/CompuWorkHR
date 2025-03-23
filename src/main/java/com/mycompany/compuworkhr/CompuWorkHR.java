@@ -12,11 +12,15 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author Laura.Garcia
+ */
+
 public class CompuWorkHR {
 
     public static void main(String[] args) {
         EmpleadoControlador empleadoCtrl = new EmpleadoControlador();
-        DepartamentoControlador deptCtrl = new DepartamentoControlador();
+        DepartamentoControlador departamentoCtrl = new DepartamentoControlador();
         EvaluacionControlador evalCtrl = new EvaluacionControlador();
         Random rnd = new Random();
 
@@ -39,15 +43,15 @@ public class CompuWorkHR {
         Departamento ti = new Departamento(1, "TI");
         Departamento finanzas = new Departamento(2, "Finanzas");
         Departamento talentoHumano = new Departamento(3, "TalentoHumano");
-        deptCtrl.agregarDepartamento(ti);
-        deptCtrl.agregarDepartamento(finanzas);
-        deptCtrl.agregarDepartamento(talentoHumano);
+        departamentoCtrl.agregarDepartamento(ti);
+        departamentoCtrl.agregarDepartamento(finanzas);
+        departamentoCtrl.agregarDepartamento(talentoHumano);
 
         // Asignar empleados a los departamentos
-        List<Departamento> departamentos = deptCtrl.getAllDepartamentos();
+        List<Departamento> departamentos = departamentoCtrl.getAllDepartamentos();
         for (int i = 0; i < empleados.length; i++) {
-            Departamento dept = departamentos.get(i % departamentos.size());
-            deptCtrl.asignarEmpleado(dept.getId(), empleados[i]);
+            Departamento departamento = departamentos.get(i % departamentos.size());
+            departamentoCtrl.asignarEmpleado(departamento.getId(), empleados[i]);
         }
 
         //Crear evaluaciones aleatorias
@@ -59,10 +63,14 @@ public class CompuWorkHR {
 
         // Mostrar departamentos con empleados
         System.out.println("=== Departamentos y sus Empleados ===");
-        deptCtrl.getAllDepartamentos().forEach(System.out::println);
+        departamentoCtrl.getAllDepartamentos().forEach(System.out::println);
 
         // Generar y mostrar reportes por departamento
         System.out.println("\n=== Reportes de Desempeño por Departamento ===");
+        for (Departamento departamento : departamentoCtrl.getAllDepartamentos()) {
+            ReporteDesempeno reporteDept = evalCtrl.generarReporteDepartamento(departamento.getId(), departamentoCtrl);
+            System.out.println(reporteDept);
+        }
 
     }
 }
