@@ -44,8 +44,12 @@ public class EmpleadoControlador {
     }
     
     public void eliminarEmpleado(int id) {
-    Empleado existente = buscarPorId(id);
-    empleados.remove(existente);
+        Empleado existente = buscarPorId(id);
+        empleados.remove(existente);
+    }
+    
+    public int generarId() {
+        return empleados.stream().mapToInt(Empleado::getId).max().orElse(0) + 1;
     }
 }
     

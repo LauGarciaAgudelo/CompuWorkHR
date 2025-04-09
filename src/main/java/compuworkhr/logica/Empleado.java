@@ -71,5 +71,9 @@ public class Empleado {
         return String.format("Empleado{id=%d, nombre='%s', cargo='%s', salario=%.2f}",
                 id, nombre, cargo, salario);
 }
+
+    public Iterable<Empleado> getAllEmpleados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

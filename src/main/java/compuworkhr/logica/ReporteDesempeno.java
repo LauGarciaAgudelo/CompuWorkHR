@@ -9,6 +9,7 @@ import java.time.LocalDate;
 /**
  * @author Laura.Garcia
  */
+
 public class ReporteDesempeno {
 
     private int id;

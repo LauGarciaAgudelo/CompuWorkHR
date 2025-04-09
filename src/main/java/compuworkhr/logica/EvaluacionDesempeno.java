@@ -52,5 +52,13 @@ public class EvaluacionDesempeno {
             fecha, empleado.getNombre(), resultadoEvaluacion, comentarios
         );
     }
+
+    public void setResultadoEvaluacion(double resultadoEvaluacion) {
+        if (resultadoEvaluacion < 1 || resultadoEvaluacion > 5) {
+            throw new IllegalArgumentException("El resultado de la evaluación debe estar entre 1 y 5.");
+        }
+        this.resultadoEvaluacion = resultadoEvaluacion;
+        
+    }
     
 }

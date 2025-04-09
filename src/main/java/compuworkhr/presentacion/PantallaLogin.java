@@ -17,7 +17,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Diana.Giraldo
+ * @author Laura.Garcia
  */
 public class PantallaLogin extends javax.swing.JFrame {
     

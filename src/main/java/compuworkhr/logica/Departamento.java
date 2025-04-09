@@ -72,9 +72,8 @@ public class Departamento {
         }
     }
     
-     @Override
+    @Override
     public String toString() {
-        return String.format("Departamento{id=%d, nombre='%s', totalEmpleados=%d}", 
-                             id, nombre, empleados.size());
+        return nombre;
     }
 }
